@@ -3,8 +3,8 @@
 
   = quick_filter_bar do |b|
     - b.group :state, text: '状态' do |g|
-      - g.add 'true', text: '已回答'
-      - g.add 'false', text: '未回答'
+      - g.add 'answered', text: '已回答'
+      - g.add 'unanswered', text: '未回答'
 
   .tab-content
-    = render_cell :bank_qa, :question #, questions: @my_questions
+    = render_cell :bank_qa, :question, questions: @my_questions

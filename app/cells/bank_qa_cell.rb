@@ -1,6 +1,7 @@
 class BankQaCell < Cell::Rails
 
-  def question
+  def question(args={})
+    @questions = args[:questions]
     render
   end
 

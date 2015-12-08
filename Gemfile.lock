@@ -1,4 +1,18 @@
 GIT
+  remote: git://github.com/kc-train/kc_notifications.git
+  revision: 77be9356359b5f71629553e3f5b9fed83352c94a
+  ref: 77be935
+  specs:
+    kc_notifications (0.0.1)
+
+GIT
+  remote: git://github.com/kc-train/question_mod.git
+  revision: 927eb3a0d1b5e2061203f288f02ede70ec816541
+  ref: 927eb3a
+  specs:
+    question_mod (0.0.1)
+
+GIT
   remote: git://github.com/mindpin/acts-as-dag.git
   revision: a94ff8ac1b946b8be5aa67792016eb26d5899282
   tag: 0.0.2
@@ -466,6 +480,7 @@ DEPENDENCIES
   kc-course-editor!
   kc-explore!
   kc_courses!
+  kc_notifications!
   knowledge-camp-api!
   knowledge-graph-js!
   knowledge-net-plan-store!
@@ -477,6 +492,7 @@ DEPENDENCIES
   mongoid-versioning!
   pry
   pry-byebug
+  question_mod!
   rails (= 4.2.3)
   rspec
   ruby-pinyin

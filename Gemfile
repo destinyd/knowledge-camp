@@ -136,6 +136,14 @@ gem 'kc-course-editor',
 gem 'kc_courses', :github => 'mindpin/kc_courses',
                   :ref => " 7aa2236"
 
+gem 'question_mod', :github => 'kc-train/question_mod',
+                  :ref => "927eb3a"
+                  #:tag => "v0.1.1"
+
+gem 'kc_notifications', :github => 'kc-train/kc_notifications',
+                  :ref => "77be935"
+                  #:tag => "v0.1.1"
+
 gem 'simple-navbar', :github => 'mindpin/simple-navbar',
                      :tag => "0.0.6p1"
 
