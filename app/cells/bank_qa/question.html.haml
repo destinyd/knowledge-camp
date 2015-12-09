@@ -1,59 +1,45 @@
-.cell-qa-question
-  - @questions.each do |question|
-    - if question.answers.any?
-      .media.has-answer
-        .media-left
-          .answers-count
-            = question.answers.count
-            %br
-            个回答
-        .media-body
-          .media-heading
-            %a{href: 'javascript:;'}= question.title
-          .intro
-            %a.pull-left{href: 'javascript:;'} 宏观经济学：4-4 经济周期
-            .pull-left.ml30.text-muted= question.created_at
-            .pull-right
-              %a.answers-toggle{href: "javascript:;"}
-                .closed
-                  %span.glyphicon.glyphicon-chevron-down
-                  展开回答
-                .opened
-                  %span.glyphicon.glyphicon-chevron-up
-                  收起回答
-            .clearfix
+- if @question.answers.any?
+  .media.has-answer
+    .media-left
+      .answers-count
+        = @question.answers.count
+        %br
+        个回答
+    .media-body
+      .media-heading
+        %a{href: 'javascript:;'}= @question.title
+      .intro
+        %a.pull-left{href: 'javascript:;'} 宏观经济学：4-4 经济周期
+        .pull-left.ml30.text-muted= @question.created_at
+        .pull-right
+          %a.answers-toggle{href: "javascript:;"}
+            .closed
+              %span.glyphicon.glyphicon-chevron-down
+              展开回答
+            .opened
+              %span.glyphicon.glyphicon-chevron-up
+              收起回答
+        .clearfix
 
-          .answers
-            - question.answers.each do |answer|
-              .media.answer
-                .media-body
-                  .media-heading
-                    %a{href: 'javascript:;'}
-                      %span.glyphicon.glyphicon-user
-                    %a{href: 'javascript:;'}= answer.creator.try(:name)
+      - if @user_answers
+        - @user_answers.each do |answer|
+          = render_cell :bank_qa, :answer, answer: answer
 
-                  .content
-                    = answer.content
+      .answers
+        - @answers.each do |answer|
+          = render_cell :bank_qa, :answer, answer: answer
 
-                  .meta
-                    .pull-left.text-muted= answer.created_at
-                    %a.pull-left.ml30{href: 'javascript:;'}
-                      %span.glyphicon.glyphicon-thumbs-up
-                      有帮助
-                      %span.vote-num
-                        - if answer.vote_sum > 0
-                          = "(#{answer.vote_sum})"
-                    .clearfix
-    - else
-      .media.no-answer
-        .media-left
-          .answers-count
-            0
-            %br
-            无回答
-        .media-body
-          .media-heading
-            %a{href: 'javascript:;'}= question.title
-          .intro
-            %a.pull-left{href: 'javascript:;'} 微观经济学：1-8 影响供给的因素
-            .pull-left.ml30.text-muted= question.created_at
+- else
+  .media.no-answer
+    .media-left
+      .answers-count
+        0
+        %br
+        无回答
+    .media-body
+      .media-heading
+        %a{href: 'javascript:;'}= @question.title
+      .intro
+        %a.pull-left{href: 'javascript:;'} 微观经济学：1-8 影响供给的因素
+        .pull-left.ml30.text-muted= @question.created_at
+
