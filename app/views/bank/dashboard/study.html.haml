@@ -1,0 +1,17 @@
+= render :layout => "nav" do
+  .page-study
+    %h3.page-header 课程学习
+    - if @course
+      %a.btn.btn-default{href: "/bank/courses/#{@course.id}/study", target: '_blank'} 链接
+    - else
+      .text-danger 暂无已发布课程，请添加后刷新
+
+    %hr
+
+    .well
+      缺：
+      %ol
+        %li 具体课件播放功能
+      注意：
+      %ol
+        %li 点击下部【增加进度】按钮，可以增加当前课件阅读进度。（每次10%）

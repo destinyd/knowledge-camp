@@ -1,0 +1,17 @@
+= render :layout => "nav" do
+  .page-course
+    %h3.page-header 课程详情
+    - if @course
+      %a.btn.btn-default{href: "/bank/courses/#{@course.id}", target: '_blank'} 链接
+    - else
+      .text-danger 暂无已发布课程，请添加后刷新
+
+    %hr
+
+    .well
+      缺：
+      %ol
+        %li 缺分享功能
+      注意：
+      %ol
+        %li 右下课程简介为静态（因为与上部显示的简介重复）

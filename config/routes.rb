@@ -113,15 +113,23 @@ Rails.application.routes.draw do
     end
 
     get "/dashboard"                       => "dashboard#index"
+    get "/dashboard/root"                       => "dashboard#root"
     get "/dashboard/courses"               => "dashboard#courses"
-    get "/dashboard/join_courses"          => "dashboard#join_courses"
+    get "/dashboard/hot_courses"           => "dashboard#hot_courses"
+    get "/dashboard/search_courses"           => "dashboard#search_courses"
+    get "/dashboard/course"               => "dashboard#course"
+    get "/dashboard/study"               => "dashboard#study"
+    get "/dashboard/studying_courses"          => "dashboard#studying_courses"
     get "/dashboard/fav_courses"           => "dashboard#fav_courses"
+    get "/dashboard/studied_courses"           => "dashboard#studied_courses"
     get "/dashboard/test_questions"        => "dashboard#test_questions"
     get "/dashboard/test_question_records" => "dashboard#test_question_records"
     get "/dashboard/flaw_test_questions"   => "dashboard#flaw_test_questions"
     get "/dashboard/fav_test_questions"    => "dashboard#fav_test_questions"
     get "/dashboard/questions"             => "dashboard#questions"
+    get "/dashboard/my_answers"             => "dashboard#my_answers"
     get "/dashboard/notes"                 => "dashboard#notes"
+    get "/dashboard/manage"                 => "dashboard#manage"
 
     scope "test_papers/:test_paper_id" do
       resources :test_paper_results

@@ -2,23 +2,55 @@
 SimpleNavbar::Base.config do
 
   rule :dashboard do
-    nav :courses, :name => '我的课程', :url => '/bank/dashboard/courses' do
+    nav :root, :name => '首页', :url => '/bank/dashboard/root' do
+      controller :"bank/dashboard", :only => :root
+    end
+
+    nav :courses, :name => '课程中心', :url => '/bank/dashboard/courses' do
       controller :"bank/dashboard", :only => :courses
 
-      nav :join_courses, :name => '参加的', :url => '/bank/dashboard/join_courses' do
-        controller :"bank/dashboard", :only => :join_courses
+      nav :recent_courses, :name => '最新', :url => '/bank/dashboard/courses' do
+        controller :"bank/dashboard", :only => :courses
       end
 
-      nav :fav_courses, :name => '参加的', :url => '/bank/dashboard/fav_courses' do
+      nav :hot_courses, :name => '最热', :url => '/bank/dashboard/hot_courses' do
+        controller :"bank/dashboard", :only => :hot_courses
+      end
+
+      nav :search_courses, :name => '搜索', :url => '/bank/dashboard/search_courses' do
+        controller :"bank/dashboard", :only => :search_courses
+      end
+
+      nav :course, :name => '课程详情', :url => '/bank/dashboard/course' do
+        controller :"bank/dashboard", :only => :course
+      end
+
+      nav :study, :name => '课程学习', :url => '/bank/dashboard/study' do
+        controller :"bank/dashboard", :only => :study
+      end
+    end
+
+    nav :mine_courses, :name => '我的课程', :url => '/bank/dashboard/studying_courses' do
+      controller :"bank/courses", :only => :mine
+
+      nav :recent_courses, :name => '正在学习', :url => '/bank/dashboard/studying_courses' do
+        controller :"bank/dashboard", :only => :studying_courses
+      end
+
+      nav :fav_courses, :name => '收藏课程', :url => '/bank/dashboard/fav_courses' do
         controller :"bank/dashboard", :only => :fav_courses
+      end
+
+      nav :studied_courses, :name => '已经学完', :url => '/bank/dashboard/studied_courses' do
+        controller :"bank/dashboard", :only => :studied_courses
       end
     end
 
     nav :test_questions, :name => '我的题库', :url => '/bank/dashboard/test_questions' do
       controller :"bank/dashboard", :only => :test_questions
 
-      nav :test_question_records, :name => '做题记录', :url => '/bank/dashboard/test_question_records' do
-        controller :"bank/dashboard", :only => :test_question_records
+      nav :test_question_records, :name => '做题记录', :url => '/bank/dashboard/test_questions' do
+        controller :"bank/dashboard", :only => :test_questions
       end
 
       nav :flaw_test_questions, :name => '错题本', :url => '/bank/dashboard/flaw_test_questions' do
@@ -30,14 +62,25 @@ SimpleNavbar::Base.config do
       end
     end
 
-    nav :questions, :name => '我的问题', :url => '/bank/dashboard/questions' do
+    nav :questions, :name => '我的问答(静态)', :url => '/bank/dashboard/questions' do
       controller :"bank/dashboard", :only => :questions
+
+      nav :my_questions, :name => '我的问题(静态)', :url => '/bank/dashboard/questions' do
+        controller :"bank/dashboard", :only => :questions
+      end
+
+      nav :my_answers, :name => '我的回答(静态)', :url => '/bank/dashboard/my_answers' do
+        controller :"bank/dashboard", :only => :my_answers
+      end
     end
 
-    nav :notes, :name => '我的笔记', :url => '/bank/dashboard/notes' do
+    nav :notes, :name => '我的笔记(静态)', :url => '/bank/dashboard/notes' do
       controller :"bank/dashboard", :only => :notes
     end
 
+    nav :manage, :name => '后台管理', :url => '/bank/dashboard/manage' do
+      controller :"bank/dashboard", :only => :manage
+    end
   end
 
   rule :bank_courses_index do

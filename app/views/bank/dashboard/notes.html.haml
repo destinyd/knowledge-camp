@@ -1,2 +1,14 @@
 = render :layout => "nav" do
   .page-notes
+    %h3.page-header 我的笔记
+    %a.btn.btn-default{href: "/bank/my_notes", target: '_blank'} 链接
+
+    %hr
+
+    .well
+      缺：
+      %ol
+        %li 课程对应关系
+        %li 以及实现提交页面
+        %li 编辑
+        %li 删除
