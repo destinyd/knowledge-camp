@@ -42,4 +42,15 @@ class Bank::CoursesController < Bank::ApplicationController
     @courses = @courses.published.page(params[:page]).per(16)
   end
 
+  def read
+    @course = KcCourses::Course.published.find params[:id]
+    @ware = @course.studing_ware_of_user current_user || @course.chapters.first.try(:wares).try(:first)
+    if @ware
+      percent = @ware.read_percent_of_user current_user
+      percent += 10
+      percent = 100 if percent > 100
+      @ware.set_read_percent_by_user current_user, percent
+    end
+    redirect_to study_bank_course_path(@course)
+  end
 end

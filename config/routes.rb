@@ -105,6 +105,7 @@ Rails.application.routes.draw do
       get :fav, on: :collection
       get :search, on: :collection
       get :study, on: :member
+      get :read, on: :member
     end
 
     resources :notifications do
